@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Royalties Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1 class="card-title">Spotify Royalties Calculator</h1>
+                <p class="card-description">Estimate your potential earnings from Spotify streams in USD, EUR, GBP, or INR</p>
+            </div>
+            <div class="card-content">
+                <div class="form-group">
+                    <label for="streams">Number of Streams</label>
+                    <input type="number" id="streams" value="10000" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="royaltiesShare">Your Royalties Share (%)</label>
+                    <input type="number" id="royaltiesShare" value="100" min="0" max="100" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <select id="location">
+                        <option value="Worldwide (Average)" data-royalty="0.00238"> - Worldwide (Average)</option>
+                        <option value="Europe (Average)" data-royalty="0.00331"> - Europe (Average)</option>
+                        <option value="Iceland" data-royalty="0.00618">Iceland</option>
+                        <option value="Norway" data-royalty="0.00547">Norway</option>
+                        <option value="Monaco" data-royalty="0.00521">Monaco</option>
+                        <option value="Denmark" data-royalty="0.00515">Denmark</option>
+                        <option value="United Kingdom" data-royalty="0.00491">United Kingdom</option>
+                        <option value="Switzerland" data-royalty="0.00473">Switzerland</option>
+                        <option value="Liechtenstein" data-royalty="0.00472">Liechtenstein</option>
+                        <option value="Ireland" data-royalty="0.00457">Ireland</option>
+                        <option value="Finland" data-royalty="0.00538">Finland</option>
+                        <option value="Sweden" data-royalty="0.00446">Sweden</option>
+                        <option value="Austria" data-royalty="0.00443">Austria</option>
+                        <option value="Luxembourg" data-royalty="0.00441">Luxembourg</option>
+                        <option value="Netherlands" data-royalty="0.00370">Netherlands</option>
+                        <option value="Andorra" data-royalty="0.00359">Andorra</option>
+                        <option value="Germany" data-royalty="0.00360">Germany</option>
+                        <option value="Belgium" data-royalty="0.00325">Belgium</option>
+                        <option value="France" data-royalty="0.00316">France</option>
+                        <option value="Cyprus" data-royalty="0.00304">Cyprus</option>
+                        <option value="Malta" data-royalty="0.00276">Malta</option>
+                        <option value="Estonia" data-royalty="0.00268">Estonia</option>
+                        <option value="Spain" data-royalty="0.00235">Spain</option>
+                        <option value="Czech Republic" data-royalty="0.00210">Czech Republic</option>
+                        <option value="Lithuania" data-royalty="0.00206">Lithuania</option>
+                        <option value="Italy" data-royalty="0.00200">Italy</option>
+                        <option value="Slovakia" data-royalty="0.00192">Slovakia</option>
+                        <option value="Hungary" data-royalty="0.00190">Hungary</option>
+                        <option value="Latvia" data-royalty="0.00177">Latvia</option>
+                        <option value="Greece" data-royalty="0.00176">Greece</option>
+                        <option value="Portugal" data-royalty="0.00162">Portugal</option>
+                        <option value="Bulgaria" data-royalty="0.00159">Bulgaria</option>
+                        <option value="Romania" data-royalty="0.00151">Romania</option>
+                        <option value="Poland" data-royalty="0.00140">Poland</option>
+                        <option value="North America (Average)" data-royalty="0.00200"> - North America (Average)</option>
+                        <option value="United States" data-royalty="0.00352">United States</option>
+                        <option value="Panama" data-royalty="0.00290">Panama</option>
+                        <option value="Canada" data-royalty="0.00273">Canada</option>
+                        <option value="Costa Rica" data-royalty="0.00197">Costa Rica</option>
+                        <option value="Dominican Republic" data-royalty="0.00189">Dominican Republic</option>
+                        <option value="Honduras" data-royalty="0.00173">Honduras</option>
+                        <option value="El Salvador" data-royalty="0.00146">El Salvador</option>
+                        <option value="Mexico" data-royalty="0.00144">Mexico</option>
+                        <option value="Nicaragua" data-royalty="0.00122">Nicaragua</option>
+                        <option value="Guatemala" data-royalty="0.00117">Guatemala</option>
+                        <option value="Oceania (Average)" data-royalty="0.00447"> - Oceania (Average)</option>
+                        <option value="New Zealand" data-royalty="0.00497">New Zealand</option>
+                        <option value="Australia" data-royalty="0.00396">Australia</option>
+                        <option value="Asia (Average)" data-royalty="0.00173"> - Asia (Average)</option>
+                        <option value="Japan" data-royalty="0.00354">Japan</option>
+                        <option value="Israel" data-royalty="0.00323">Israel</option>
+                        <option value="Singapore" data-royalty="0.00291">Singapore</option>
+                        <option value="Hong Kong" data-royalty="0.00274">Hong Kong</option>
+                        <option value="United Arab Emirates" data-royalty="0.00252">United Arab Emirates</option>
+                        <option value="Lebanon" data-royalty="0.00203">Lebanon</option>
+                        <option value="Oman" data-royalty="0.00185">Oman</option>
+                        <option value="Bahrain" data-royalty="0.00176">Bahrain</option>
+                        <option value="Vietnam" data-royalty="0.00163">Vietnam</option>
+                        <option value="Malaysia" data-royalty="0.00155">Malaysia</option>
+                        <option value="Taiwan" data-royalty="0.00155">Taiwan</option>
+                        <option value="Qatar" data-royalty="0.00145">Qatar</option>
+                        <option value="Kuwait" data-royalty="0.00144">Kuwait</option>
+                        <option value="India" data-royalty="0.00140">India</option>
+                        <option value="Thailand" data-royalty="0.00116">Thailand</option>
+                        <option value="Saudi Arabia" data-royalty="0.00108">Saudi Arabia</option>
+                        <option value="Jordan" data-royalty="0.00099">Jordan</option>
+                        <option value="Indonesia" data-royalty="0.00096">Indonesia</option>
+                        <option value="Turkey" data-royalty="0.00084">Turkey</option>
+                        <option value="Philippines" data-royalty="0.00081">Philippines</option>
+                        <option value="South America (Average)" data-royalty="0.00139"> - South America (Average)</option>
+                        <option value="Uruguay" data-royalty="0.00248">Uruguay</option>
+                        <option value="Ecuador" data-royalty="0.00163">Ecuador</option>
+                        <option value="Paraguay" data-royalty="0.00153">Paraguay</option>
+                        <option value="Peru" data-royalty="0.00146">Peru</option>
+                        <option value="Brazil" data-royalty="0.00129">Brazil</option>
+                        <option value="Chile" data-royalty="0.00126">Chile</option>
+                        <option value="Colombia" data-royalty="0.00104">Colombia</option>
+                        <option value="Bolivia" data-royalty="0.00099">Bolivia</option>
+                        <option value="Argentina" data-royalty="0.00085">Argentina</option>
+                        <option value="Africa (Average)" data-royalty="0.00094"> - Africa (Average)</option>
+                        <option value="South Africa" data-royalty="0.00156">South Africa</option>
+                        <option value="Egypt" data-royalty="0.00096">Egypt</option>
+                        <option value="Morocco" data-royalty="0.00080">Morocco</option>
+                        <option value="Algeria" data-royalty="0.00070">Algeria</option>
+                        <option value="Tunisia" data-royalty="0.00070">Tunisia</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="currency">Currency</label>
+                    <select id="currency">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="GBP">GBP</option>
+                        <option value="INR">INR</option>
+                    </select>
+                </div>
+                <div class="earnings">
+                    <h3>Estimated Earnings</h3>
+                    <p id="estimatedEarnings" class="earnings-amount">$0.00</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <script src="./javascript.js"></script>
+</body>
+</html>
